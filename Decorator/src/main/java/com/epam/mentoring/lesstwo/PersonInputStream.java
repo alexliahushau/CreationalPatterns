@@ -13,32 +13,31 @@ import java.util.stream.Collectors;
  * Created by Aliaksandr_Liahushau on 3/4/2017.
  */
 public class PersonInputStream implements ReadPerson {
-
-    List<Person> personsCache = new ArrayList<>(0);
+    final static String PERSON_JSON = System.getProperty("user.dir") + "/persons.json";
+    final List<Person> personsCache = new ArrayList<>(0);
 
     @Override
     public Person readPerson(String personName) {
 
         return findPerson(personName)
-            .map(p -> capitalizeName(p))
+            .map(this::capitalizeName)
             .orElseGet(() -> {
                 updateCache();
                 return findPerson(personName)
-                    .map(p -> capitalizeName(p))
+                    .map(this::capitalizeName)
                     .orElse(null);
             });
     }
 
     private void updateCache() {
-        final JSONParser parser = new JSONParser();
-
         try {
-            final FileReader reader = new FileReader(System.getProperty("user.dir") + "/persons.json");
+            final JSONParser parser = new JSONParser();
+            final FileReader reader = new FileReader(PERSON_JSON);
             final Object obj = parser.parse(reader);
             final JSONObject jsonObject = (JSONObject) obj;
             final JSONArray personsList = (JSONArray) jsonObject.get("persons");
 
-            personsCache = new ArrayList<>(0);
+            personsCache.clear();
 
             personsList.forEach(pObj -> {
                 JSONObject jsObj = (JSONObject) pObj;
@@ -65,7 +64,4 @@ public class PersonInputStream implements ReadPerson {
         return person;
     }
 
-    public List<Person> getPersonsCache() {
-        return personsCache;
-    }
 }

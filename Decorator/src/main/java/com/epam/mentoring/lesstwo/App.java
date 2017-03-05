@@ -20,7 +20,7 @@ public class App {
             try {
                 action = Integer.parseInt(new Scanner(System.in).next());
             } catch (NumberFormatException e) {
-                e.printStackTrace(System.out);
+                System.out.println("please enter correct number");
             }
 
             switch (action) {
