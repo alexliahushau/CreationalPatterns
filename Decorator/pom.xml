@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.epam.mentoring.lesstwo</groupId>
-    <artifactId>proxy</artifactId>
+    <artifactId>decorator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -33,7 +33,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>proxy</finalName>
+        <finalName>decorator</finalName>
     </build>
 
 </project>
