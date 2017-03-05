@@ -48,9 +48,10 @@ public class PersonOutputStream implements WritePerson {
         }
 
         try (FileWriter writer = new FileWriter(PERSON_JSON)) {
+            final JSONObject personJSON = new JSONObject();
             final JSONObject personsJSON = new JSONObject();
-
-            personsList.add(person.toString());
+            personJSON.put("name", person.getName());
+            personsList.add(personJSON);
             personsJSON.put(PERSONS, personsList);
 
             writer.write(personsJSON.toJSONString());

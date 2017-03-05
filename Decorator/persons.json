@@ -1,16 +1,1 @@
-{
-	"persons" : [
-		{
-			"name" : "sasha"
-		},
-		{
-			"name" : "lesha"
-		},
-		{	
-			"name" : "katia"
-		},
-		{	
-			"name" : "vasia"
-		}
-	]
-}
+{"persons":[{"name":"sasha"},{"name":"lesha"},{"name":"katia"},{"name":"vasia"},{"name":"Dima"}]}

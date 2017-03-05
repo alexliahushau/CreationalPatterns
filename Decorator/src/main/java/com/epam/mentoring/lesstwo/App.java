@@ -14,6 +14,7 @@ public class App {
             System.out.println("Enter action:");
             System.out.println("    1 - read person");
             System.out.println("    2 - write person");
+            System.out.println("    3 - exit");
 
             int action = 0;
 
@@ -39,6 +40,9 @@ public class App {
                 case 2 :
                     System.out.println("Enter name:");
                     writeDecorator.writePerson(new Person(new Scanner(System.in).next()));
+                    break;
+                case 3 :
+                    System.exit(0);
                     break;
             }
         }
